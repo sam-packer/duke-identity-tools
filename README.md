@@ -15,8 +15,8 @@ import {DukeIdentityClient} from "duke-identity-tools";
 
 const duke = new DukeIdentityClient({apiKey: "your-access-token"});
 
-const people = await duke.fetchByNetId("tt305");
-console.log(people[0].display_name); // "testtwo testtwo"
+const people = await duke.fetchByNetId("vprice");
+console.log(people[0].display_name); // "Vincent Price, Ph.D."
 ```
 
 All methods return typed responses and throw specific error classes (`DukeApiError`, `DukeTimeoutError`, `DukeIdentityError`) that you can catch and handle individually.
@@ -25,7 +25,7 @@ All methods return typed responses and throw specific error classes (`DukeApiErr
 import { DukeApiError } from "duke-identity-tools";
 
 try {
-  const people = await duke.fetchByNetId("unknown");
+  const people = await duke.fetchByNetId("vprice");
 } catch (error) {
   if (error instanceof DukeApiError) {
     console.error(`API returned ${error.statusCode}: ${error.statusText}`);

@@ -13,9 +13,10 @@ export async function search(
   request: RequestFn,
   query: string,
 ): Promise<readonly Person[]> {
-  if (!query) {
+  const trimmed = query.trim();
+  if (!trimmed) {
     throw new DukeIdentityError("query must be a non-empty string");
   }
 
-  return request<readonly Person[]>("/ldap/people", { q: query.trim() });
+  return request<readonly Person[]>("/ldap/people", { q: trimmed });
 }

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "Duke-IdP-Helper",
+      "name": "duke-identity-tools",
       "devDependencies": {
         "typescript": "^6.0.2",
       },

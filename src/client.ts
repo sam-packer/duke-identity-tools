@@ -1,6 +1,8 @@
 import type { DukeIdentityConfig, Person } from "./types.js";
 import { DukeApiError, DukeIdentityError, DukeTimeoutError } from "./errors.js";
 import { fetchByNetId } from "./routes/fetch-by-netid.js";
+import { fetchByDuid } from "./routes/fetch-by-duid.js";
+import { fetchByLdapkey } from "./routes/fetch-by-ldapkey.js";
 import { search } from "./routes/search.js";
 
 const DEFAULT_BASE_URL = "https://streamer.oit.duke.edu";
@@ -29,6 +31,20 @@ export class DukeIdentityClient {
   }
 
   /**
+   * Look up a person by their Duke Unique ID (DUID).
+   */
+  async fetchByDuid(duid: string): Promise<Person> {
+    return fetchByDuid(this.#request, duid);
+  }
+
+  /**
+   * Look up a person by their LDAP key.
+   */
+  async fetchByLdapkey(ldapkey: string): Promise<Person> {
+    return fetchByLdapkey(this.#request, ldapkey);
+  }
+
+  /**
    * Search for people in Duke's LDAP directory.
    */
   async search(query: string): Promise<readonly Person[]> {
@@ -42,8 +58,6 @@ export class DukeIdentityClient {
         url.searchParams.set(key, value);
       }
     }
-    url.searchParams.set("access_token", this.#apiKey);
-
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), this.#timeout);
 
@@ -51,7 +65,10 @@ export class DukeIdentityClient {
     try {
       response = await fetch(url, {
         method: "GET",
-        headers: { accept: "application/json" },
+        headers: {
+          accept: "application/json",
+          authorization: `Bearer ${this.#apiKey}`,
+        },
         signal: controller.signal,
       });
     } catch (error: unknown) {

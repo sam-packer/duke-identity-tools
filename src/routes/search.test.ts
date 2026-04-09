@@ -37,7 +37,7 @@ describe("search", () => {
     expect(result).toMatchSnapshot();
   });
 
-  it("throws DukeIdentityError for empty query", () => {
-    expect(duke.search("")).rejects.toThrow(DukeIdentityError);
+  it("throws DukeIdentityError for empty query", async () => {
+    await expect(duke.search("")).rejects.toThrow(DukeIdentityError);
   });
 });

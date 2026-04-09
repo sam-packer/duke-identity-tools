@@ -1,6 +1,6 @@
 {
   "name": "duke-identity-tools",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A TypeScript client for Duke University's identity services (LDAP directory)",
   "type": "module",
   "main": "./dist/index.js",

@@ -13,10 +13,11 @@ export async function fetchByNetId(
   request: RequestFn,
   netId: string,
 ): Promise<readonly Person[]> {
-  if (!netId) {
+  const trimmed = netId.trim();
+  if (!trimmed) {
     throw new DukeIdentityError("netId must be a non-empty string");
   }
 
-  const sanitized = encodeURIComponent(netId.trim());
+  const sanitized = encodeURIComponent(trimmed);
   return request<readonly Person[]>(`/ldap/people/netid/${sanitized}`);
 }

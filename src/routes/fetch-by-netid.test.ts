@@ -44,12 +44,12 @@ describe("fetchByNetId", () => {
     expect(result).toMatchSnapshot();
   });
 
-  it("throws DukeIdentityError for empty netid", () => {
-    expect(duke.fetchByNetId("")).rejects.toThrow(DukeIdentityError);
+  it("throws DukeIdentityError for empty netid", async () => {
+    await expect(duke.fetchByNetId("")).rejects.toThrow(DukeIdentityError);
   });
 
-  it("throws DukeApiError for invalid API key", () => {
+  it("throws DukeApiError for invalid API key", async () => {
     const badClient = new DukeIdentityClient({ apiKey: "invalid-key" });
-    expect(badClient.fetchByNetId("vprice")).rejects.toThrow(DukeApiError);
+    await expect(badClient.fetchByNetId("vprice")).rejects.toThrow(DukeApiError);
   });
 });

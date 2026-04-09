@@ -25,7 +25,7 @@ describe("DukeIdentityClient", () => {
       globalThis.fetch = mock(() => Promise.reject(new TypeError("fetch failed"))) as typeof fetch;
 
       const client = new DukeIdentityClient({ apiKey: "test-key" });
-      expect(client.fetchByNetId("tt305")).rejects.toThrow(DukeIdentityError);
+      await expect(client.fetchByNetId("tt305")).rejects.toThrow(DukeIdentityError);
     });
 
     it("throws DukeTimeoutError when request exceeds timeout", async () => {
@@ -38,7 +38,7 @@ describe("DukeIdentityClient", () => {
       }) as typeof fetch;
 
       const client = new DukeIdentityClient({ apiKey: "test-key", timeout: 50 });
-      expect(client.fetchByNetId("tt305")).rejects.toThrow(DukeTimeoutError);
+      await expect(client.fetchByNetId("tt305")).rejects.toThrow(DukeTimeoutError);
     });
   });
 });

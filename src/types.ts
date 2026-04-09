@@ -35,7 +35,10 @@ export interface Person {
   readonly netid: string;
   readonly display_name: string;
   readonly nickname?: string;
+  readonly titles?: readonly string[];
   readonly primary_affiliation?: string;
   readonly emails?: readonly string[];
+  readonly phones?: readonly string[];
+  readonly department?: string;
   readonly url: string;
 }
