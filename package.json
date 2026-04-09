@@ -1,0 +1,40 @@
+{
+  "name": "duke-identity-tools",
+  "version": "1.0.0",
+  "description": "A TypeScript client for Duke University's identity services (LDAP directory)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "bun run build"
+  },
+  "keywords": [
+    "duke",
+    "identity",
+    "ldap",
+    "directory",
+    "shibboleth"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Telesphoreo/duke-identity-tools"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.2"
+  }
+}
