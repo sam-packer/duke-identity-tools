@@ -1,0 +1,4 @@
+interface:
+  display_name: "Duke Identity Tools"
+  short_description: "Use duke-identity-tools correctly in app code"
+  default_prompt: "Use $duke-identity-tools to integrate the Duke identity client into this project."

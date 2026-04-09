@@ -1,6 +1,7 @@
 # duke-identity-tools
 
-A lightweight TypeScript client for Duke University's identity services. Wraps the Duke Streamer LDAP API with type-safe methods, proper error handling, and zero runtime dependencies.
+A lightweight TypeScript client for Duke University's identity services. Wraps the Duke Streamer LDAP API with type-safe
+methods, proper error handling, and zero runtime dependencies.
 
 [View on npm](https://www.npmjs.com/package/duke-identity-tools)
 
@@ -9,6 +10,17 @@ A lightweight TypeScript client for Duke University's identity services. Wraps t
 ```bash
 bun add duke-identity-tools
 ```
+
+## Coding Agent Skill
+
+This repo ships a reusable coding-agent skill in `skills/duke-identity-tools/`. Copy that folder into your agent's
+skills directory so it knows how to use this library correctly.
+
+| Agent                      | Skills path                             | Invocation             |
+|----------------------------|-----------------------------------------|------------------------|
+| **Claude Code** (personal) | `~/.claude/skills/duke-identity-tools/` | `/duke-identity-tools` |
+| **Claude Code** (project)  | `.claude/skills/duke-identity-tools/`   | `/duke-identity-tools` |
+| **Codex**                  | `~/.codex/skills/duke-identity-tools/`  | `$duke-identity-tools` |
 
 ## Quick Start
 
@@ -21,17 +33,18 @@ const people = await duke.fetchByNetId("vprice");
 console.log(people[0].display_name); // "Vincent Price, Ph.D."
 ```
 
-All methods return typed responses and throw specific error classes (`DukeApiError`, `DukeTimeoutError`, `DukeIdentityError`) that you can catch and handle individually.
+All methods return typed responses and throw specific error classes (`DukeApiError`, `DukeTimeoutError`,
+`DukeIdentityError`) that you can catch and handle individually.
 
 ```ts
-import { DukeApiError } from "duke-identity-tools";
+import {DukeApiError} from "duke-identity-tools";
 
 try {
-  const people = await duke.fetchByNetId("vprice");
+    const people = await duke.fetchByNetId("vprice");
 } catch (error) {
-  if (error instanceof DukeApiError) {
-    console.error(`API returned ${error.statusCode}: ${error.statusText}`);
-  }
+    if (error instanceof DukeApiError) {
+        console.error(`API returned ${error.statusCode}: ${error.statusText}`);
+    }
 }
 ```
 
@@ -76,4 +89,5 @@ bun test --update-snapshots
 
 ## Disclaimer
 
-This is an unofficial community project and is not affiliated with, endorsed by, or maintained by Duke University or Duke OIT.
+This is an unofficial community project and is not affiliated with, endorsed by, or maintained by Duke University or
+Duke OIT.
