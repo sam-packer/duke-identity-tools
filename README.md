@@ -2,6 +2,8 @@
 
 A lightweight TypeScript client for Duke University's identity services. Wraps the Duke Streamer LDAP API with type-safe methods, proper error handling, and zero runtime dependencies.
 
+[View on npm](https://www.npmjs.com/package/duke-identity-tools)
+
 ## Install
 
 ```bash
