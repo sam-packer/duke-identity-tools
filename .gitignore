@@ -29,3 +29,6 @@ coverage/
 
 # npm
 *.tgz
+
+# Wiki (separate git repo)
+/wiki
