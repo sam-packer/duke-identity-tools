@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeAll } from "bun:test";
 import { DukeIdentityClient } from "../client.js";
 import { DukeApiError, DukeIdentityError } from "../errors.js";
+import { describePeopleShape } from "../internal/shape-summary.js";
 import type { Person } from "../types.js";
 
 const apiKey = process.env["DUKE_API_KEY"];
@@ -41,7 +42,7 @@ describe("fetchByNetId", () => {
   });
 
   it("matches the expected response shape", async () => {
-    expect(result).toMatchSnapshot();
+    expect(describePeopleShape(result)).toMatchSnapshot();
   });
 
   it("throws DukeIdentityError for empty netid", async () => {

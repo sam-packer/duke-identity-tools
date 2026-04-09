@@ -2,24 +2,35 @@
 
 exports[`fetchByLdapkey matches the expected response shape 1`] = `
 {
-  "department": "University Officers (Confidential)",
-  "display_name": "Vincent Price, Ph.D.",
-  "duid": "0788059",
-  "emails": [
-    "president@duke.edu",
+  "fieldTypes": {
+    "department": "string",
+    "display_name": "string",
+    "duid": "string",
+    "emails": "string[]",
+    "givenName": "string",
+    "ldapkey": "string",
+    "netid": "string",
+    "nickname": "string",
+    "phones": "string[]",
+    "primary_affiliation": "string",
+    "sn": "string",
+    "titles": "string[]",
+    "url": "string",
+  },
+  "presentFields": [
+    "ldapkey",
+    "sn",
+    "givenName",
+    "duid",
+    "netid",
+    "display_name",
+    "nickname",
+    "titles",
+    "primary_affiliation",
+    "emails",
+    "phones",
+    "department",
+    "url",
   ],
-  "givenName": "Vincent",
-  "ldapkey": "ede5ea33-6ab2-4809-9f88-5aa40a2b00ac",
-  "netid": "vprice",
-  "nickname": "Vincent",
-  "phones": [
-    "+1 919 684 2424",
-  ],
-  "primary_affiliation": "Faculty",
-  "sn": "Price",
-  "titles": [
-    "Walter Hines Page Distinguished Professor of Public Policy and Political Science",
-  ],
-  "url": "https://streamer.oit.duke.edu/ldap/people/ede5ea33-6ab2-4809-9f88-5aa40a2b00ac",
 }
 `;

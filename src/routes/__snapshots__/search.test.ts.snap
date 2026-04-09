@@ -1,15 +1,28 @@
 // Bun Snapshot v1, https://bun.sh/docs/test/snapshots
 
 exports[`search matches the expected response shape 1`] = `
-[
-  {
-    "display_name": "Vincent Price, Ph.D.",
-    "duid": "0788059",
-    "givenName": "Vincent",
-    "ldapkey": "ede5ea33-6ab2-4809-9f88-5aa40a2b00ac",
-    "netid": "vprice",
-    "sn": "Price",
-    "url": "https://streamer.oit.duke.edu/ldap/people/ede5ea33-6ab2-4809-9f88-5aa40a2b00ac",
+{
+  "count": 1,
+  "itemShape": {
+    "fieldTypes": {
+      "display_name": "string",
+      "duid": "string",
+      "givenName": "string",
+      "ldapkey": "string",
+      "netid": "string",
+      "sn": "string",
+      "url": "string",
+    },
+    "presentFields": [
+      "ldapkey",
+      "sn",
+      "givenName",
+      "duid",
+      "netid",
+      "display_name",
+      "url",
+    ],
   },
-]
+  "responseType": "array",
+}
 `;
