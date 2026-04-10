@@ -13,14 +13,12 @@ bun add duke-identity-tools
 
 ## Coding Agent Skill
 
-This repo ships a reusable coding-agent skill in `skills/duke-identity-tools/`. Copy that folder into your agent's
-skills directory so it knows how to use this library correctly.
+This repo ships a reusable coding agent skill in `skills/duke-identity-tools/`. Install it with
+[`npx skills`](https://github.com/vercel-labs/skills) so your agent knows how to use this library correctly:
 
-| Agent                      | Skills path                             | Invocation             |
-|----------------------------|-----------------------------------------|------------------------|
-| **Claude Code** (personal) | `~/.claude/skills/duke-identity-tools/` | `/duke-identity-tools` |
-| **Claude Code** (project)  | `.claude/skills/duke-identity-tools/`   | `/duke-identity-tools` |
-| **Codex**                  | `~/.codex/skills/duke-identity-tools/`  | `$duke-identity-tools` |
+```bash
+npx skills add sam-packer/duke-identity-tools
+```
 
 ## Quick Start
 
