@@ -9,7 +9,7 @@ if (!apiKey) {
 }
 
 const duke = new DukeIdentityClient({ apiKey });
-const shapeFixtureNetIds = ["sp800", "apd5", "ttt27", "vprice"] as const;
+const shapeFixtureNetIds = ["sp800", "apd5", "vprice"] as const;
 
 interface ResolvedFixture {
   readonly netid: string;
